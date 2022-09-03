@@ -30,7 +30,7 @@ const MEALS = [
 ];
 
 const MealsMenu = () => {
-  const mealsList = MEALS.map((meal) => <MealItem meal={meal} />);
+  const mealsList = MEALS.map((meal) => <MealItem meal={meal} key={meal.id} />);
   return (
     <section className={styles.meals}>
       <h2>Menu</h2>

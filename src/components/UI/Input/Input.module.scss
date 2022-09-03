@@ -1,0 +1,22 @@
+@use "../../../helpers/" as *;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-bottom: toRem(7);
+
+  & label {
+    font-weight: bold;
+    margin-bottom: toRem(7);
+    text-transform: capitalize;
+    margin-left: auto;
+  }
+
+  & input {
+    width: toRem(40);
+    border-radius: 5px;
+    border: 1px solid var(--light-grey);
+    font: inherit;
+    padding: toRem(7);
+  }
+}
