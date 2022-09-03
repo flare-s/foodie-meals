@@ -1,0 +1,23 @@
+@use "../../../helpers/" as *;
+.meal {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+  padding: toRem(10) 0;
+  border-bottom: 1px solid var(--light-grey);
+
+  & h3 {
+    margin-bottom: toRem(5);
+  }
+}
+
+.description {
+  font-style: italic;
+}
+
+.price {
+  margin-top: toRem(5);
+  font-weight: bold;
+  color: var(--secondary-color);
+  font-size: 1.25rem;
+}
