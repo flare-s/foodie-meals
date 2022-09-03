@@ -5,6 +5,8 @@
 :root {
   --text: #fff;
   --primary-color: rgb(70, 47, 140);
+  --primary-color-dark: rgb(54, 36, 107);
+  --primary-color-light: rgb(87, 57, 179);
   --shadow: rgba(0, 0, 0, 0.25);
 }
 
@@ -26,6 +28,7 @@ button {
   color: inherit;
   cursor: pointer;
   border: none;
+  font: inherit;
 }
 
 img {

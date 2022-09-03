@@ -1,0 +1,57 @@
+@use "../../../helpers/" as *;
+
+.button {
+  background-color: var(--shadow);
+  padding: toRem(10) toRem(15);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10;
+  font-weight: bold;
+
+  &:hover,
+  &:active {
+    background-color: var(--primary-color-dark);
+  }
+
+  &:hover .badge,
+  &:active .badge {
+    background-color: var(--primary-color);
+  }
+}
+
+.icon {
+  width: toRem(25);
+  height: toRem(25);
+  margin-right: toRem(8);
+}
+
+.badge {
+  background-color: var(--primary-color-light);
+  padding: toRem(5) toRem(10);
+  border-radius: 25px;
+  margin-left: toRem(8);
+  font-weight: bold;
+}
+
+.bump {
+  animation: bump 300ms ease-out;
+}
+
+@keyframes bump {
+  0% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(0.9);
+  }
+  30% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
