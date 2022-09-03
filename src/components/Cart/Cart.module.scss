@@ -1,0 +1,41 @@
+@use "../../helpers/" as *;
+.cart-items {
+  max-height: toRem(320);
+  overflow: auto;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: toRem(20);
+  margin: toRem(15) 0;
+}
+
+.actions {
+  text-align: right;
+
+  & button {
+    background-color: transparent;
+    border: 1px solid var(--secondary-color);
+    padding: toRem(10) toRem(15);
+    border-radius: 10px;
+    margin-left: toRem(10);
+  }
+
+  & button:hover,
+  & button:active {
+    background-color: var(--secondary-color-dark);
+    border-color: var(--secondary-color-dark);
+    color: var(--text);
+  }
+
+  & .button--alt {
+    color: var(--secondary-color);
+  }
+
+  & .button {
+    background-color: var(--secondary-color);
+  }
+}
