@@ -1,0 +1,13 @@
+@use "../../../helpers/" as *;
+.summary {
+  text-align: center;
+  max-width: toRem(600);
+  width: 90%;
+  margin: auto;
+  margin-top: toRem(-100);
+  position: relative;
+  background-color: var(--dark-grey);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 18px 10px var(--shadow);
+}
