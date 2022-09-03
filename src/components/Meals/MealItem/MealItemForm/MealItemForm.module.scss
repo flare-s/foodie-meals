@@ -1,0 +1,17 @@
+@use "../../../../helpers/" as *;
+.form {
+  text-align: right;
+}
+
+.form button {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--secondary-color-dark);
+  padding: toRem(5) toRem(10);
+  border-radius: 10px;
+}
+
+.form button:hover,
+.form button:active {
+  background-color: var(--secondary-color-dark);
+  border-color: var(--secondary-color);
+}
