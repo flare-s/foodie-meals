@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./MealsMenu.module.scss";
+import Card from "../../UI/Card/Card";
 const MEALS = [
   {
     id: "m1",
@@ -32,7 +33,9 @@ const MealsMenu = () => {
   return (
     <section className={styles.meals}>
       <h2>Menu</h2>
-      <ul>{mealsList}</ul>
+      <Card>
+        <ul>{mealsList}</ul>
+      </Card>
     </section>
   );
 };
