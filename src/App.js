@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Meals from "./components/Meals/Meals";
 import Cart from "./components/Cart/Cart";
+import CartProvider from "./store/CartContext";
 
 function App() {
   const [isModal, setIsModal] = useState(false);
@@ -16,13 +17,13 @@ function App() {
   };
 
   return (
-    <Fragment>
+    <CartProvider>
       <Header openModal={openModal} />
       {isModal && <Cart closeModal={closeModal} />}
       <main>
         <Meals />
       </main>
-    </Fragment>
+    </CartProvider>
   );
 }
 
