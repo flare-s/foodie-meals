@@ -5,7 +5,7 @@ import { cartContext } from "../../../store/CartContext";
 const CartButton = (props) => {
   const { cartState } = useContext(cartContext);
   const currentCartItems = cartState.items.reduce(
-    (accumulator, item) => accumulator + item.value,
+    (accumulator, item) => accumulator + item.amount,
     0
   );
   return (

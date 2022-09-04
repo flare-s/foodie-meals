@@ -4,36 +4,54 @@ export const cartContext = createContext();
 
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
-    let inArray = state.items.findIndex(
+    // Get the index of an item that has the same id
+    let elementInArrayIndex = state.items.findIndex(
       (meal) => meal.id === action.payload.id
     );
-    console.log(inArray);
-    if (inArray !== -1) {
-      let newValue = state.items[inArray].value + action.payload.value;
-      let arrayWithoutTheExistingObj = state.items.filter(
-        (el) => el.id !== action.payload.id
-      );
-      return {
-        items: [
-          ...arrayWithoutTheExistingObj,
-          { ...action.payload, value: newValue },
-        ],
-        total: state.total + action.payload.price * action.payload.value,
-      };
-    } else {
-      return {
-        items: [...state.items, action.payload],
-        total: state.total + action.payload.price * action.payload.value,
-      };
+    let currentState = state.items;
+    let itemToAdd = action.payload;
+    // If an element with the same id exists
+    if (elementInArrayIndex !== -1) {
+      // Remove the element from the copied state
+      currentState = currentState.filter((item) => item.id !== itemToAdd.id);
+      // Calculate the new amout by adding the old amount with the new one
+      let newAmount =
+        state.items[elementInArrayIndex].amount + action.payload.amount;
+      // Change the amount to the total of the old and new amount
+      itemToAdd = { ...itemToAdd, amount: newAmount };
     }
-  } else if (action.type === "DELETE") {
+
+    return {
+      items: [...currentState, itemToAdd],
+      total: state.total + action.payload.price * action.payload.amount,
+    };
+  }
+  if (action.type === "DELETE") {
+    // Get the index of an item that has the same id
+    let elementInArrayIndex = state.items.findIndex(
+      (meal) => meal.id === action.payload
+    );
+    // Get the element to decrease its amount
+    let itemToRemove = state.items[elementInArrayIndex];
+    // Make an array without that element
     let filteredItems = state.items.filter(
       (item) => item.id !== action.payload
     );
-    let value = filteredItems.reduce((acc, cur) => acc + cur.price, 0);
+    // If the amount is bigger than one decrease it by one and put it in the filtered array
+    if (state.items[elementInArrayIndex].amount > 1) {
+      filteredItems = [
+        ...filteredItems,
+        { ...itemToRemove, amount: itemToRemove.amount - 1 },
+      ];
+    }
+    //Calculate the new total
+    let totalAfterRemovalOfTheOldAmount = filteredItems.reduce(
+      (accumulator, item) => accumulator + item.price * item.amount,
+      0
+    );
     return {
       items: filteredItems,
-      total: value,
+      total: totalAfterRemovalOfTheOldAmount,
     };
   }
   return {
@@ -57,7 +75,7 @@ const CartProvider = (props) => {
 
   const onRemoveItem = (id) => {
     cartDispatch({
-      type: "ADD",
+      type: "DELETE",
       payload: id,
     });
   };
