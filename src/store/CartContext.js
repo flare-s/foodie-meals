@@ -4,13 +4,9 @@ export const cartContext = createContext();
 
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
-    let prevTotal = state.items.reduce(
-      (acc, cur) => acc + cur.price * cur.value,
-      0
-    );
     return {
       items: [...state.items, action.payload],
-      total: prevTotal + action.payload.price * action.payload.value,
+      total: state.total + action.payload.price * action.payload.value,
     };
   } else if (action.type === "DELETE") {
     let filteredItems = state.items.filter(
