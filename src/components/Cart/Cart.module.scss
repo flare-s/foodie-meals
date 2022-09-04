@@ -1,6 +1,6 @@
 @use "../../helpers/" as *;
 .cart-items {
-  max-height: toRem(320);
+  max-height: toRem(200);
   overflow: auto;
 }
 
