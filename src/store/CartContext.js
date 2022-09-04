@@ -4,10 +4,28 @@ export const cartContext = createContext();
 
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
-    return {
-      items: [...state.items, action.payload],
-      total: state.total + action.payload.price * action.payload.value,
-    };
+    let inArray = state.items.findIndex(
+      (meal) => meal.id === action.payload.id
+    );
+    console.log(inArray);
+    if (inArray !== -1) {
+      let newValue = state.items[inArray].value + action.payload.value;
+      let arrayWithoutTheExistingObj = state.items.filter(
+        (el) => el.id !== action.payload.id
+      );
+      return {
+        items: [
+          ...arrayWithoutTheExistingObj,
+          { ...action.payload, value: newValue },
+        ],
+        total: state.total + action.payload.price * action.payload.value,
+      };
+    } else {
+      return {
+        items: [...state.items, action.payload],
+        total: state.total + action.payload.price * action.payload.value,
+      };
+    }
   } else if (action.type === "DELETE") {
     let filteredItems = state.items.filter(
       (item) => item.id !== action.payload

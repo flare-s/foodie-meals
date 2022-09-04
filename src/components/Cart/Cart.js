@@ -8,10 +8,6 @@ const Cart = (props) => {
   // const CART_ITEMS = [{ id: "c1", name: "Sushi", amount: 2, price: "13.99" }];
   const { cartState } = useContext(cartContext);
 
-  const onAddCartItem = (item) => {};
-
-  const onRemoveCartItem = (id) => {};
-
   const cartList = (
     <ul className={styles["cart-items"]}>
       {cartState.items.map((item) => (
