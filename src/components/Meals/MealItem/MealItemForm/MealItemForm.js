@@ -10,6 +10,7 @@ const MealItemForm = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
     onAddItem({ ...props.meal, amount: +valueRef.current.value });
+    valueRef.current.value = "1";
   };
   return (
     <form className={styles.form} onSubmit={submitHandler}>
