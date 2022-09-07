@@ -26,9 +26,8 @@ const CartButton = (props) => {
     0
   );
   return (
-    <button className={btnClass} onClick={props.closeModal}>
-      <CartIcon className={styles.icon} />
-      Cart
+    <button className={btnClass} onClick={props.closeModal} aria-label="Cart">
+      <CartIcon className={styles.icon} ariaHidden={"true"} />
       <span className={styles.badge}>{currentCartItems}</span>
     </button>
   );
