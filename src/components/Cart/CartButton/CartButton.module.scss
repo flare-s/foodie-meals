@@ -8,30 +8,26 @@
   align-items: center;
   border-radius: 10px;
   font-weight: bold;
-
+  position: relative;
   &:hover,
   &:active {
     background-color: var(--primary-color-dark);
-  }
-
-  &:hover .badge,
-  &:active .badge {
-    background-color: var(--primary-color);
   }
 }
 
 .icon {
   width: toRem(25);
   height: toRem(25);
-  margin-right: toRem(8);
+  margin-right: toRem(5);
 }
 
 .badge {
-  background-color: var(--primary-color-light);
   padding: toRem(5) toRem(10);
   border-radius: 25px;
-  margin-left: toRem(8);
   font-weight: bold;
+  position: absolute;
+  top: -5px;
+  right: -5px;
 }
 
 .bump {
