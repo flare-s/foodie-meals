@@ -3,7 +3,6 @@ import mealsImage from "../../assets/meals.jpg";
 import CartButton from "../Cart/CartButton/CartButton";
 import styles from "./Header.module.scss";
 const Header = (props) => {
-  console.log("header runinng!");
   return (
     <Fragment>
       <header className={styles.header}>
