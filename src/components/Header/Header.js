@@ -7,7 +7,7 @@ const Header = (props) => {
     <Fragment>
       <header className={styles.header}>
         <h1>Foodie Meals</h1>
-        <CartButton closeModal={props.openModal} />
+        <CartButton openModal={props.openModal} />
       </header>
       <div className={styles["main-image"]}>
         <img src={mealsImage} alt="Table full of food" />
