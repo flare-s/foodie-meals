@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Meals from "./components/Meals/Meals";
@@ -8,9 +8,9 @@ import CartProvider from "./store/CartContext";
 function App() {
   const [isModal, setIsModal] = useState(false);
 
-  const openModal = () => {
+  const openModal = useCallback(() => {
     setIsModal(true);
-  };
+  }, []);
 
   const closeModal = () => {
     setIsModal(false);

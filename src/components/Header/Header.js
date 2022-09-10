@@ -1,8 +1,9 @@
-import React, { Fragment } from "react";
+import React, { Fragment, memo } from "react";
 import mealsImage from "../../assets/meals.jpg";
 import CartButton from "../Cart/CartButton/CartButton";
 import styles from "./Header.module.scss";
 const Header = (props) => {
+  console.log("header runinng!");
   return (
     <Fragment>
       <header className={styles.header}>
@@ -16,4 +17,4 @@ const Header = (props) => {
   );
 };
 
-export default Header;
+export default memo(Header);
